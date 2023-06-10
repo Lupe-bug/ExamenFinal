@@ -1,0 +1,34 @@
+MATCH (n) RETURN n
+
+CREATE (:Contacto {nombre: 'Diana', telefono: '15436765'})
+
+CREATE (:Contacto {nombre: 'Juan', telefono: '17689054'})
+
+CREATE (:Contacto {nombre: 'Pablo', telefono: '15467895'})
+
+CREATE (:Contacto {nombre: 'Sender', telefono: '09876547'})
+
+CREATE (:Contacto {nombre: 'Ana', telefono: '76549865'})
+
+CREATE (:Contacto {nombre: 'Nancy', telefono: '89765409'})
+
+
+Diana= c1
+Juan= c2
+PAblo= c3
+Sender = c4
+Ana = c5
+NAncy = c6
+
+MATCH (c1:Contacto {nombre: 'Diana'}), (c2:Contacto {nombre: 'Juan'})
+CREATE (c1)-[:CONOCE_A]->(c2)
+
+MATCH (c3:Contacto {nombre: 'Pablo'}), (c4:Contacto {nombre: 'Sender'})
+CREATE (c3)-[:CONOCE_A]->(c4)
+
+MATCH (c5:Contacto {nombre: 'Ana'}), (c6:Contacto {nombre: 'Nancy'})
+CREATE (c5)-[:CONOCE_A]->(c6)
+
+CREATE (c5)-[:CONOCE_A]->(c1)
+
+
